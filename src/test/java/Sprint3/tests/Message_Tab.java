@@ -1,8 +1,10 @@
 package Sprint3.tests;
 
 import Sprint3.util.WebDriverFactory;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -38,6 +40,19 @@ public class Message_Tab {
 
         Assert.assertTrue(topic_displayed,"topic box is not displayed");
     }
+    @Test
+    public void verify_record_video()throws InterruptedException{
+
+
+            //finding message tab
+
+            driver.findElement(By.xpath("(//span[.='Message'])[2]")).click();
+
+            Thread.sleep(2000);
+            driver.findElement(By.xpath("(//span[@class='feed-add-post-form-but-cnt feed-add-videomessage'])[1]")).click();
+
+        }
+
 
     @AfterMethod
     public void tearDown(){
